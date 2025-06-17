@@ -5,7 +5,7 @@ Simple web app in Express for questions and answers.
 Register, Login, Post questions and answers.
 
 # How to run?
-
 1. Clone repository
 2. Open terminal and run ```npm install```
-3. Open browser on http://localhost:3000
+3. After installing run ```npm start```
+4. Open browser on http://localhost:3000
