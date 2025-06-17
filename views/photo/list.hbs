@@ -1,0 +1,8 @@
+<li>
+  <img class="avatar-sm" src="{{postedBy.profilePicture}}" alt="avatar">
+  <a href="/questions/{{_id}}">{{title}}</a>
+  <p>
+    Objavil: <a href="/users/{{postedBy._id}}">{{postedBy.username}}</a> |
+    Datum: {{formatDate createdAt}}
+  </p>
+</li>

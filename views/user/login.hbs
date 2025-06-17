@@ -1,0 +1,11 @@
+<h1>Prijava</h1>
+{{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+<form action="/users/login" method="post">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <input type="text" name="username" placeholder="Uporabniško ime" required>
+    <input type="password" name="password" placeholder="Geslo" required>
+    <input type="submit" value="Prijavi se">
+</form>
+<p>Nimaš računa? <a href="/users/register">Registriraj se</a></p>

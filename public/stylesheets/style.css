@@ -1,0 +1,238 @@
+/* Define CSS variables for consistent theming */
+:root {
+  --primary-color: #00B7FF;
+  --secondary-color: #007ACC;
+  --background-color: #F5F7FA;
+  --text-color: #333;
+  --border-color: #E0E0E0;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --spacing-unit: 20px;
+  --font-family: 'Inter', 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+/* Reset default styles and set base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: var(--spacing-unit);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Navigation */
+nav {
+  background-color: #fff;
+  padding: var(--spacing-unit);
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--spacing-unit);
+  border-radius: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-unit);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--border-color);
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  margin-bottom: var(--spacing-unit);
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Forms */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Question List */
+ul#questions-list {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+ul#questions-list li {
+  background-color: #fff;
+  padding: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease;
+}
+
+ul#questions-list li:hover {
+  transform: translateY(-2px);
+}
+
+ul#questions-list li a {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Question and Answer Cards */
+div.question,
+div.answer {
+  background-color: #fff;
+  padding: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+div.answer.accepted {
+  border-left: 4px solid #28A745;
+}
+
+/* Alerts (for errors) */
+.alert {
+  padding: 15px;
+  margin-bottom: var(--spacing-unit);
+  border-radius: 4px;
+}
+
+.alert-danger {
+  background-color: #F8D7DA;
+  color: #721C24;
+  border: 1px solid #F5C6CB;
+}
+
+/* Avatar images */
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.avatar-lg {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: calc(var(--spacing-unit) / 2);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 90px;
+  }
+}

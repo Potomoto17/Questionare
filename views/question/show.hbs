@@ -1,0 +1,49 @@
+<div class="question">
+    <h1>{{question.title}}</h1>
+    <p>{{question.description}}</p>
+    <p>Objavil: {{question.postedBy.username}} | Datum: {{formatDate question.createdAt}}</p>
+</div>
+
+<h2>Odgovori</h2>
+{{#if answers}}
+{{#each answers}}
+<div class="answer {{#if isAccepted}}accepted{{/if}}">
+    <img class="avatar" src="{{postedBy.profilePicture}}" alt="avatar">
+    <p>{{content}}</p>
+    <p>
+        Objavil:
+        <a href="/users/{{postedBy._id}}">{{postedBy.username}}</a> |
+        Datum: {{formatDate createdAt}}
+    </p>
+    {{#if isAccepted}}
+    <p style="color: #28A745;">Sprejet odgovor</p>
+    {{/if}}
+    {{#if ../userId}}
+    {{#if ../question.postedBy._id}}
+    {{#ifCond ../question.postedBy._id '==' ../userId}}
+    {{#unless isAccepted}}
+    <form action="/questions/{{../question._id}}/answers/{{_id}}/accept" method="post">
+        <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+        <input type="submit" value="Sprejmi odgovor">
+    </form>
+    {{/unless}}
+    {{/ifCond}}
+    {{/if}}
+    {{/if}}
+</div>
+{{/each}}
+{{else}}
+<p>Ni odgovorov.</p>
+{{/if}}
+
+{{#if userId}}
+<h3>Dodaj odgovor</h3>
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+<form action="/questions/{{question._id}}/answers" method="post">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <textarea name="content" placeholder="Vaš odgovor" required></textarea>
+    <input type="submit" value="Objavi odgovor">
+</form>
+{{/if}}

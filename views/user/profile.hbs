@@ -1,0 +1,25 @@
+<h1>Profil uporabnika</h1>
+
+<img class="avatar-lg" src="{{profilePicture}}" alt="avatar">
+
+<h2>{{username}}</h2>
+<p>Email: {{email}}</p>
+
+<h3>Statistika</h3>
+<ul>
+    <li>Objavljena vprašanja: {{questionsCount}}</li>
+    <li>Objavljeni odgovori: {{answersCount}}</li>
+    <li>Sprejeti odgovori: {{acceptedCount}}</li>
+</ul>
+
+<h3>Spremeni avatar</h3>
+<form action="/users/profile/avatar" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <input type="file" name="avatar" accept="image/*" required>
+    <button type="submit">Naloži</button>
+</form>
+
+<form action="/users/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <button type="submit">Odjava</button>
+</form>

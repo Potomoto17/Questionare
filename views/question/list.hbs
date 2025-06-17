@@ -1,0 +1,13 @@
+<h1>Vprašanja</h1>
+{{#if questions}}
+  <ul id="questions-list">
+    {{#each questions}}
+      <li>
+        <a href="/questions/{{_id}}">{{title}}</a>
+        <p>Objavil: {{postedBy.username}} | Datum: {{formatDate createdAt}}</p>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Ni vprašanj.</p>
+{{/if}}

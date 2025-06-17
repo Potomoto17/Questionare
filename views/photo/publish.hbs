@@ -1,0 +1,12 @@
+<h1>Dodaj sliko</h1>
+
+<form action="/photos" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+  <input type="text" name="name"  placeholder="Ime slike" required>
+  <input type="file" name="image" accept="image/*" required>
+
+  <div class="tp">
+    <input type="submit" value="Dodaj">
+  </div>
+</form>

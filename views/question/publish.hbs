@@ -1,0 +1,10 @@
+<h1>Objavi vprašanje</h1>
+{{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+<form action="/questions" method="post">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <input type="text" name="title" placeholder="Naslov vprašanja" value="{{title}}" required>
+    <textarea name="description" placeholder="Opis vprašanja" required>{{description}}</textarea>
+    <input type="submit" value="Objavi">
+</form>
